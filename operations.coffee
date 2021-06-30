@@ -3,10 +3,10 @@ fs = require 'fs'
 
 # console.log cej 
 result = cej {
-  sourceFile:'/Users/jk/Downloads/艾力彼助理/jk/手术明细.xlsx'
+  sourceFile:'/Users/jk/Downloads/ailibi/guangyi5/手术明细.xlsx'
   header: {rows: 1}
   sheets: ['Sheet1']
-  #range: 'A2:H5'
+  range: 'A2:D4'
   columnToKey: {
     A: '科室名称'	
     B: '科室诊断'	
