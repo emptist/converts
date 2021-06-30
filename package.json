@@ -8,7 +8,9 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "coffeescript": "^2.5.1"
+  },
   "dependencies": {
     "convert-excel-to-json": "^1.7.0",
     "json-as-xlsx": "^2.0.0"
