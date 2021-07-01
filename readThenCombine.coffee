@@ -13,3 +13,11 @@ read = (funcOpts) ->
   {rowName,rowContents}
 
 write = (funcOpts) ->
+  {data, settings} = funcOpts
+  xlsx(data, settings)
+
+settings = {
+  fileName: 'CombinedSpreadsheet'
+  extraLength: 3
+  writeOptions: {} # https://github.com/SheetJS/sheetjs#writing-options
+}
