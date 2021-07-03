@@ -54,6 +54,8 @@ if fs.existsSync jsonfilename
           {label:'科室名', value:'科室名称'}
           {label:'收入合计', value: '收入合计'}
           {label:'医疗服务收入', value: 'netIncome'}
+          {label:'门诊检查收入', value: '门诊检查收入'}
+          {label:'住院药品收入', value: '住院药品收入'}
         ]
         content: arr 
       }
