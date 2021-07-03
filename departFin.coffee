@@ -1,11 +1,14 @@
 cej = require 'convert-excel-to-json'
 fs = require 'fs'
+pptxgen = require 'pptxgenjs'
 xlsx = require 'json-as-xlsx'
 
 sourceFile = '/Users/jk/Downloads/建水2018-2020科室收入报表/2018-2020科室收入报表/2018年科室收入.xlsx'
 jsonfilename = './departFin.json'
 outfilename = 'departFin'
- 
+pptname = 'departFin.pptx' 
+
+
 readOpts = {
   sourceFile:sourceFile
   header: {rows: 6}
@@ -45,6 +48,47 @@ if fs.existsSync jsonfilename
     console.log each
   console.log arr
   
+  unless fs.existsSync pptname
+    pres = new pptxgen()
+    slide = pres.addSlide("TITLE_SLIDE")
+
+    slide = pres.addSlide()
+
+    #slide.background = { color: "F1F1F1" }  # hex fill color with transparency of 50%
+    #slide.background = { data: "image/png;base64,ABC[...]123" }  # image: base64 data
+    #slide.background = { path: "https://some.url/image.jpg" }  # image: url
+
+    #slide.color = "696969"  # Set slide default font color
+
+    # EX: Styled Slide Numbers
+    slide.slideNumber = { x: "95%", y: "95%", fontFace: "Courier", fontSize: 32, color: "FF3399" }
+    ###
+    dataChartAreaLine = [
+        {
+            name: arr[0].科室名称,
+            labels: ["医疗服务收入","收入合计","门诊收入合计","住院收入合计"],
+            values: [arr[0].医疗服务收入,arr[0].收入合计,arr[0].门诊收入合计,arr[0].住院收入合计]
+        },
+        {
+            name: arr[1].科室名称,
+            labels: ["医疗服务收入","收入合计","门诊收入合计","住院收入合计"],
+            values: [arr[1].医疗服务收入,arr[1].收入合计,arr[1].门诊收入合计,arr[1].住院收入合计]
+        },
+    ]
+
+    slide.addChart(pres.ChartType.line, dataChartAreaLine, { x: 1, y: 1, w: 8, h: 4 })
+    ###
+
+    #// For simple cases, you can omit `then`
+    pres.writeFile({ fileName: pptname})
+
+    ###// Using Promise to determine when the file has actually completed generating
+    pres.writeFile({ fileName: pptname })
+        .then((fileName) -> 
+            console.log("created file:#{fileName}")
+        )
+    ###
+
   unless fs.existsSync "#{outfilename}.xlsx"
 
     data = [

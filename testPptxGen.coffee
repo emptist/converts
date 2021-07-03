@@ -7,18 +7,19 @@ pres.revision = '15'
 pres.subject = 'Annual Report'
 pres.title = 'PptxGenJS Sample Presentation'
 
-#pres.layout = 'LAYOUT_16x9'
+pres.layout = 'LAYOUT_16x9'
 pptx = pres
 
 #// Define new layout for the Presentation
-pptx.defineLayout({ name:'A3', width:16.5, height:11.7 })
+#pptx.defineLayout({ name:'A3', width:16.5, height:11.7 })
 #// Set presentation to use new layout
-pptx.layout = 'A3'
+#pptx.layout = 'A3'
 slide = pres.addSlide("TITLE_SLIDE")
+
 slide = pres.addSlide()
 
 slide.background = { color: "F1F1F1" }  # Solid color
-slide.background = { color: "FF3399", transparency: 50 }  # hex fill color with transparency of 50%
+#slide.background = { color: "FF3399", transparency: 90 }  # hex fill color with transparency of 50%
 #slide.background = { data: "image/png;base64,ABC[...]123" }  # image: base64 data
 #slide.background = { path: "https://some.url/image.jpg" }  # image: url
 
@@ -28,7 +29,7 @@ slide.color = "696969"  # Set slide default font color
 #slide.slideNumber = { x: 1.0, y: "90%" }
 
 #// EX: Styled Slide Numbers
-slide.slideNumber = { x: 1.0, y: "95%", fontFace: "Courier", fontSize: 32, color: "CF0101" }
+slide.slideNumber = { x: "95%", y: "95%", fontFace: "Courier", fontSize: 32, color: "FF3399" }
 
 dataChartAreaLine = [
     {
