@@ -1,9 +1,9 @@
 cej = require 'convert-excel-to-json'
 fs = require 'fs'
-jsonfilename = 'operations.json'
+jsonfilename = './operations.json'
 
 if fs.existsSync jsonfilename
-  
+  console.log content = require jsonfilename
 else
   # console.log cej 
   result = cej {
