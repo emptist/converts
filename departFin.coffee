@@ -48,7 +48,7 @@ if fs.existsSync jsonfilename
     console.log each
   console.log arr
   
-  unless fs.existsSync pptname
+  if fs.existsSync pptname
     pres = new pptxgen()
     slide = pres.addSlide("TITLE_SLIDE")
 
@@ -62,7 +62,6 @@ if fs.existsSync jsonfilename
 
     # EX: Styled Slide Numbers
     slide.slideNumber = { x: "95%", y: "95%", fontFace: "Courier", fontSize: 32, color: "FF3399" }
-    ###
     dataChartAreaLine = [
         {
             name: arr[0].科室名称,
@@ -77,7 +76,6 @@ if fs.existsSync jsonfilename
     ]
 
     slide.addChart(pres.ChartType.line, dataChartAreaLine, { x: 1, y: 1, w: 8, h: 4 })
-    ###
 
     #// For simple cases, you can omit `then`
     pres.writeFile({ fileName: pptname})
