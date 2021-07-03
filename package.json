@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "convert-excel-to-json": "^1.7.0",
-    "json-as-xlsx": "^2.0.0"
+    "json-as-xlsx": "^2.0.0",
+    "pptxgenjs": "^3.6.0"
   }
 }
