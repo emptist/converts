@@ -32,10 +32,10 @@ readOpts = {
 
 if fs.existsSync jsonfilename
   content = require jsonfilename
-  console.log content 
+  #console.log content 
   
   arr = content.Sheet1
-  console.log arr
+  #console.log arr
 
   for each in arr
     if /门诊$/.test(each.科室名称)
@@ -45,8 +45,8 @@ if fs.existsSync jsonfilename
       {住院收入合计,住院检查收入,住院耗材收入,住院药品收入,住院化验收入} = each
       each.netIncome = 住院收入合计 - (住院检查收入+住院耗材收入+住院药品收入+住院化验收入)
     
-    console.log each
-  console.log arr
+    #console.log each
+  #console.log arr
   
   if fs.existsSync pptname
     pres = new pptxgen()
@@ -65,27 +65,35 @@ if fs.existsSync jsonfilename
     dataChartAreaLine = [
         {
             name: arr[0].科室名称,
-            labels: ["医疗服务收入","收入合计","门诊收入合计","住院收入合计"],
+            labels: ["医服收","收合","门收合","住收合"],
             values: [arr[0].医疗服务收入,arr[0].收入合计,arr[0].门诊收入合计,arr[0].住院收入合计]
         },
         {
             name: arr[1].科室名称,
-            labels: ["医疗服务收入","收入合计","门诊收入合计","住院收入合计"],
+            labels: ["医服收","收合","门收合","住收合"],
             values: [arr[1].医疗服务收入,arr[1].收入合计,arr[1].门诊收入合计,arr[1].住院收入合计]
         },
     ]
 
-    slide.addChart(pres.ChartType.line, dataChartAreaLine, { x: 1, y: 1, w: 8, h: 4 })
+    slide.addChart(pres.ChartType.radar, dataChartAreaLine, { 
+      x: 0, y: "50%", w: '45%', h: "50%" 
+      showLegend: true, legendPos: "b"
+    })
+    slide.addChart(pres.ChartType.bar, dataChartAreaLine, { 
+      x: 5, y: "50%", w: '45%', h: "50%" 
+      showLegend: true, legendPos: "b"
+      showTitle: true, title: "Bar Chart"
+    })
 
+    ###
     #// For simple cases, you can omit `then`
     pres.writeFile({ fileName: pptname})
-
-    ###// Using Promise to determine when the file has actually completed generating
+    ###
+    #// Using Promise to determine when the file has actually completed generating
     pres.writeFile({ fileName: pptname })
         .then((fileName) -> 
-            console.log("created file:#{fileName}")
+            console.log("created file:#{fileName} at #{Date()}")
         )
-    ###
 
   unless fs.existsSync "#{outfilename}.xlsx"
 
