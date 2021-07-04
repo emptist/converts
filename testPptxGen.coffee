@@ -12,6 +12,7 @@ pptx = pres
 
 pptx.layout = "LAYOUT_WIDE"
 
+
 pptx.defineSlideMaster({
     title: "MASTER_SLIDE",
     background: { color: "FFFFFF" },
@@ -67,6 +68,17 @@ dataChartAreaLine = [
 ]
 
 slide.addChart(pres.ChartType.radar, dataChartAreaLine, { x: 1, y: 1, w: 8, h: 4 })
+
+
+#// STEP 1: Create a section
+pptx.addSection({ title: "Tables" })
+
+#// STEP 2: Provide section title to a slide that you want in corresponding section
+slide = pptx.addSlide({ sectionTitle: "Tables" ,order: 2})
+
+slide.addText("This slide is in the Tables section!", { x: 1.5, y: 1.5, fontSize: 18, color: "363636" })
+#pptx.writeFile({ fileName: "Section Sample.pptx" })
+
 
 #// For simple cases, you can omit `then`
 # pptx.writeFile({ fileName: 'Browser-PowerPoint-Demo.pptx' })
