@@ -18,7 +18,7 @@ pptx.defineSlideMaster({
         #{ line: { x: 3.5, y: 1.0, w: "100%", line: { color: "0088CC", width: 5 } } },
         { rect: { x: 0.0, y: 5.3, w: "100%", h: 0.75, fill: { color: "F1F1F1" } } },
         { text: { text: "Status Report", options: { x: 3.0, y: 5.3, w: 5.5, h: 0.75 } } },
-        { image: { x: 11.3, y: 0.3, w: 1.6, h: 0.3, path: "images/lotus001.jpeg" } },
+        { image: { x: 11.3, y: 0.3, w: 1.6, h: 0.5, path: "images/lotus001.jpeg" } },
     ],
     slideNumber: { x: "90%", y: "90%" },
 })
