@@ -3,7 +3,7 @@ fs = require 'fs'
 pptxgen = require 'pptxgenjs'
 xlsx = require 'json-as-xlsx'
 
-sourceFile = 'E:\projects\沧州中心医院量化项目\后期医院补报的资料\0702报艾力彼三四级手术占比2019-2020.xlsx'
+sourceFile = './0702报艾力彼三四级手术占比2019-2020.xlsx'
 jsonfilename = './手术占比.json'
 outfilename = '沧州中心医院19'
 pptname = '沧州中心医院专科报告19.pptx' 
@@ -49,7 +49,7 @@ if fs.existsSync jsonfilename
   content = require jsonfilename
   #console.log content 
   
-  arr = content[['二级专科']
+  arr = content['二级专科']
   #console.log arr
   # 未完待续
   
