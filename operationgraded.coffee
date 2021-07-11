@@ -28,8 +28,8 @@ readOpts = {
   sheets: ['二级专科']   #['三级专科','二级专科']
   #range: 'A6:Z14'
   columnToKey: {
-    #A:"{{A2}}", B:"{{B2}}", C:"{{C2}}"
     '*':'{{columnHeader}}'
+    #A:"{{A2}}", B:"{{B2}}", C:"{{C2}}"
   }
 }
 ###
