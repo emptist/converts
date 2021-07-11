@@ -25,7 +25,7 @@ readToJson = (readOpts) ->
 readOpts = {
   sourceFile:sourceFile
   header: {rows: 2}
-  sheets: ['二级专科']   #['三级专科','二级专科']
+  sheets: ['三级专科','二级专科']  #['二级专科']
   #range: 'A6:Z14'
   columnToKey: {
     '*':'{{columnHeader}}'
