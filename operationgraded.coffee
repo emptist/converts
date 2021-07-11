@@ -28,6 +28,17 @@ readOpts = {
   sheets: ['二级专科']   #['三级专科','二级专科']
   #range: 'A6:Z14'
   columnToKey: {
+    #A:"{{A2}}", B:"{{B2}}", C:"{{C2}}"
+    '*':'{{columnHeader}}'
+  }
+}
+###
+readOpts = {
+  sourceFile:sourceFile
+  header: {rows: 2}
+  sheets: ['二级专科']   #['三级专科','二级专科']
+  #range: 'A6:Z14'
+  columnToKey: {
     A:'心血管内科'	 
     B:'呼吸内科'	
     C:'消化内科'	
@@ -54,10 +65,21 @@ readOpts = {
     X:'重症医学科'	
     Y:'肿瘤内科'	
     Z:'老年内科'	
-    #康复科	心脏外科	胸外科	烧伤整形外科	疼痛科	耳鼻喉科	皮肤科	风湿免疫科	血管外科	整形外科	介入科
+    AA:'康复科'	
+    AB:'心脏外科'	
+    AC:'胸外科'	
+    AD:'烧伤整形外科'	
+    AE:'疼痛科'	
+    AF:'耳鼻喉科'	
+    AG:'皮肤科'	
+    AH:'风湿免疫科'	
+    AI:'血管外科'	
+    AJ:'整形外科'	
+    AK:'介入科'
   }
 }
 
+###
 createPPT = (arr) ->
   labels = []
   values = []
@@ -107,7 +129,7 @@ createPPT = (arr) ->
       )
 
 
-if fs.existsSync jsonfilename
+if not fs.existsSync jsonfilename
   content = require jsonfilename
   #console.log content 
   
